@@ -37,6 +37,8 @@ const ConnectMongoDB = (URL) => {
   ConnectMongoDB(URL);
 
   //routes
-  const userRoute=require('./routes/user.js');
+  const userRoute=require('./routes/auth.js');
   app.use('/api',userRoute);
 
+ const adminRoute=require('./routes/admin/auth.js');
+  app.use('/api',adminRoute);
