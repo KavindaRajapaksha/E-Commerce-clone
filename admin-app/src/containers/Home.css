@@ -1,0 +1,27 @@
+/* Home.css */
+
+  .jumbotron {
+   
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Use 100% of the viewport width */
+    margin: 0; /* Remove default margin */
+    padding: 0; 
+   
+    height: 20rem;
+  }
+h1 {
+   
+    margin-top: 10rem;
+    
+    color: #000;
+    font-weight: 300;
+    
+  }
+  .home{
+    min-height: 100vh;
+    padding: 0rem 9% 2rem;
+    margin-top: auto
+  }
+  

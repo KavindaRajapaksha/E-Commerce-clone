@@ -23,6 +23,7 @@ app.listen(PORT,()=>{
 // });
 
 // mongodb+srv://KavindaRajapaksha:I52ExQcnWAHgc19a@cluster0.ijyfgr0.mongodb.net/
+
 const URL=process.env.DATABASE_URL;
 const ConnectMongoDB = (URL) => {
     try {
