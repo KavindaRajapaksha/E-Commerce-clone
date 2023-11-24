@@ -1,9 +1,15 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../../models/User.js");
 const jwt = require("jsonwebtoken");
+const { check, validationResult } = require("express-validator");
 
-const registerUser = asyncHandler(async (req, res) => {
+const registerAdmin = asyncHandler(async (req, res) => {
   try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const existingUser = await User.findOne({ email: req.body.email });
 
     if (existingUser) {
@@ -39,6 +45,11 @@ const registerUser = asyncHandler(async (req, res) => {
 
 const signIn = asyncHandler(async (req, res) => {
   try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const user = await User.findOne({ email: req.body.email }).exec();
 
     if (!user) {
@@ -82,4 +93,4 @@ requireSignIn = (req, res, next) => {
   next();
 };
 
-module.exports = { registerUser, signIn ,requireSignIn};
+module.exports = { registerAdmin, signIn ,requireSignIn};
